@@ -1,103 +1,245 @@
+"use client";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import Wrapper from "./components/Wrapper";
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [formStatus, setFormStatus] = useState(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch("/send-mail.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        e.target.reset();
+      } else {
+        setFormStatus("error");
+      }
+    } catch (err) {
+      setFormStatus("error");
+    }
+  };
+
+  return (
+    <Wrapper>
+      {/* HERO */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="hero min-h-screen"
+        style={{
+          backgroundImage: `url(".public/image_2.png")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="hero-overlay bg-opacity-70 bg-neutral"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-lg">
+            <h1 className="mb-5 text-5xl font-extrabold">
+              Cabinet de Psychomotricité à Ranville
+            </h1>
+            <p className="mb-6 text-lg">
+              Au sein de la Maison de Santé Pluridisciplinaire (CAEN)
+            </p>
+            <a href="#contact" className="btn btn-primary btn-wide">
+              Prendre rendez-vous
+            </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </motion.section>
+
+      {/* PRÉSENTATION */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="bg-base-100 py-20"
+      >
+        <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-12">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            alt="Marion Couasse - Psychomotricienne"
+            className="w-full max-w-sm rounded-2xl shadow-xl object-cover"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <div className="max-w-xl text-center lg:text-left">
+            <h2 className="text-4xl font-bold mb-4">
+              Marion Couasse <br />
+              <span className="text-primary">Psychomotricienne D.E</span>
+            </h2>
+            <p className="text-base leading-relaxed mb-4">
+              <strong>Numéro SIRET :</strong> 93051265200015 <br />
+              <strong>RPPS :</strong> 10007273534
+            </p>
+            <p className="text-base leading-relaxed">
+              J’accueille les <strong>bébés, enfants et adultes</strong> pour
+              des bilans et séances de psychomotricité, ainsi que des séances de
+              relaxation adaptées à chacun.
+            </p>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* INFORMATIONS PRATIQUES */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="bg-base-200 py-20"
+      >
+        <div className="container mx-auto px-6 lg:px-12">
+          <h3 className="text-3xl font-semibold text-center mb-10">
+            Informations pratiques
+          </h3>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Horaires */}
+            <div className="card bg-base-100 shadow-lg p-6 text-center">
+              <h4 className="text-xl font-bold mb-2">Horaires</h4>
+              <p>
+                Du <strong>lundi au jeudi</strong> sur rendez-vous
+                <br />
+                <span className="text-sm">
+                  (Permanence téléphonique le vendredi)
+                </span>
+              </p>
+            </div>
+
+            {/* Contact */}
+            <div className="card bg-base-100 shadow-lg p-6 text-center">
+              <h4 className="text-xl font-bold mb-2">Contact</h4>
+              <p>
+                📞 <strong>06.27.37.57.87</strong>
+                <br />
+                📧{" "}
+                <a
+                  href="mailto:marioncouasse.psychomot@gmail.com"
+                  className="text-primary underline"
+                >
+                  marioncouasse.psychomot@gmail.com
+                </a>
+              </p>
+            </div>
+
+            {/* Adresse */}
+            <div className="card bg-base-100 shadow-lg p-6 text-center">
+              <h4 className="text-xl font-bold mb-2">Adresse</h4>
+              <p>
+                1 bis rue du stade <br />
+                14860 Ranville
+                <br />
+                (proche Caen, Cabourg, Dives-sur-Mer)
+                <br />
+                <span className="text-sm">Parking gratuit — accès PMR</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* CONTACT + MAP */}
+      <motion.section
+        id="contact"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="bg-base-100 py-20"
+      >
+        <div className="container mx-auto px-6 lg:px-12">
+          <h3 className="text-3xl font-semibold text-center mb-10">
+            Me contacter
+          </h3>
+
+          <div className="grid lg:grid-cols-2 gap-10">
+            {/* Google Maps */}
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <iframe
+                title="Cabinet de psychomotricité - Ranville"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2648.385224043163!2d-0.269!3d49.202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480a3b1bbeb8d6c9%3A0x34f6acb8bcd0d80!2s1%20Bis%20Rue%20du%20Stade%2C%2014860%20Ranville!5e0!3m2!1sfr!2sfr!4v0000000000000"
+                width="100%"
+                height="400"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            {/* Formulaire */}
+            <form
+              onSubmit={handleSubmit}
+              className="card bg-base-200 shadow-xl p-8"
+            >
+              <div className="form-control mb-4">
+                <label className="label">Nom</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  className="input input-bordered"
+                />
+              </div>
+
+              <div className="form-control mb-4">
+                <label className="label">Prenom</label>
+                <input
+                  type="text"
+                  name="lastname"
+                  required
+                  className="input input-bordered"
+                />
+              </div>
+
+              <div className="form-control mb-4">
+                <label className="label">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="input input-bordered"
+                />
+              </div>
+
+              <div className="form-control mb-6">
+                <label className="label">Message</label>
+                <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  className="textarea textarea-bordered"
+                />
+              </div>
+
+              <button type="submit" className="btn btn-primary w-full">
+                Envoyer
+              </button>
+
+              {formStatus === "success" && (
+                <p className="text-success text-center mt-4">
+                  ✅ Message envoyé avec succès !
+                </p>
+              )}
+              {formStatus === "error" && (
+                <p className="text-error text-center mt-4">
+                  ❌ Une erreur est survenue, veuillez réessayer.
+                </p>
+              )}
+            </form>
+          </div>
+        </div>
+      </motion.section>
+    </Wrapper>
   );
 }
