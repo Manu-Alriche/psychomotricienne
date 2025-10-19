@@ -41,7 +41,7 @@ const Navbar = () => {
         </a>
       </div>
       <div className="hidden md:flex gap-6 navbar-center">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal text-base px-1">
           {links.map((link) => (
             <li key={link.name}>
               <a href={link.href}>{link.name}</a>

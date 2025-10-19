@@ -36,26 +36,26 @@ export default function Home() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="hero min-h-screen"
-        style={{
-          backgroundImage: `url(".public/image_2.png")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="relative min-h-screen"
       >
-        <div className="hero-overlay bg-opacity-70 bg-neutral"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-lg">
-            <h1 className="mb-5 text-5xl font-extrabold">
-              Cabinet de Psychomotricité à Ranville
-            </h1>
-            <p className="mb-6 text-lg">
-              Au sein de la Maison de Santé Pluridisciplinaire (CAEN)
-            </p>
-            <a href="#contact" className="btn btn-primary btn-wide">
-              Prendre rendez-vous
-            </a>
-          </div>
+        <Image
+          src="/image_5.jpg"
+          alt="Cabinet"
+          fill
+          style={{ objectFit: "cover" }}
+          priority
+        />
+        <div className="absolute inset-0 bg-black/15"></div>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-neutral-content px-6">
+          <h1 className="text-5xl font-bold mb-4">
+            Cabinet de psychomotricité à Ranville
+          </h1>
+          <p className="text-lg mb-6">
+            Au sein de la Maison de Santé Pluridisciplinaire (CAEN)
+          </p>
+          <button className="btn btn-primary text-white">
+            Prendre rendez-vous
+          </button>
         </div>
       </motion.section>
 
@@ -69,7 +69,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-12">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            src="/image_3.jpg"
             alt="Marion Couasse - Psychomotricienne"
             className="w-full max-w-sm rounded-2xl shadow-xl object-cover"
           />
@@ -115,6 +115,7 @@ export default function Home() {
                   (Permanence téléphonique le vendredi)
                 </span>
               </p>
+              <p>Bébés et enfants / Relaxation adultes / Bilans et séances</p>
             </div>
 
             {/* Contact */}

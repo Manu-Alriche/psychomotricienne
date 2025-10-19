@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Wrapper from "../components/Wrapper";
+import { ChevronDown } from "lucide-react";
 
 export default function About() {
   return (
@@ -11,7 +12,7 @@ export default function About() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="hero min-h-[80vh] bg-base-200"
+        className="hero min-h-[95vh] bg-base-200"
       >
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
           <img
@@ -34,6 +35,21 @@ export default function About() {
             <p className="text-base text-gray-600">
               Psychomotricienne à Ranville (proche Caen, Cabourg)
             </p>
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="mt-10 flex justify-center"
+            >
+              <ChevronDown
+                size={40}
+                className="text-primary cursor-pointer hover:opacity-80 transition"
+                onClick={() => {
+                  document.getElementById("parcours")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              />
+            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -48,7 +64,9 @@ export default function About() {
         className="bg-base-100 py-20"
       >
         <div className="container mx-auto px-6 lg:px-12">
-          <h2 className="text-4xl font-bold text-center mb-10">Mon parcours</h2>
+          <h2 className="text-4xl text-primary font-bold text-center mb-10">
+            Mon parcours
+          </h2>
           <div className="max-w-4xl mx-auto leading-relaxed text-lg space-y-5">
             <p>
               Diplômée depuis <strong>2016</strong> de l’Institut de Formation
@@ -121,7 +139,7 @@ export default function About() {
                   <span className="absolute -left-4 top-2 w-4 h-4 bg-primary rounded-full border-2 border-white"></span>
 
                   {/* Organisation */}
-                  <p className="font-semibold text-lg mb-2">{item.org}</p>
+                  <p className="font-semibold text-lg mb-2 ">{item.org}</p>
 
                   {/* Card */}
                   <div className="bg-base-100 shadow-md rounded-xl p-5">
@@ -144,7 +162,7 @@ export default function About() {
         className="bg-base-100 py-20"
       >
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl font-semibold mb-8">
+          <h2 className="text-3xl text-primary font-semibold mb-8">
             Ma vision de la psychomotricité
           </h2>
           <blockquote className="italic text-lg max-w-3xl mx-auto text-gray-600">

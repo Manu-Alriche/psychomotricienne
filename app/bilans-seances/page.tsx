@@ -11,7 +11,7 @@ export default function BilansSeances() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="hero min-h-[60vh] bg-base-200"
+        className="hero min-h-[50vh] bg-base-200"
       >
         <div className="hero-content text-center">
           <div className="max-w-3xl">
@@ -34,7 +34,7 @@ export default function BilansSeances() {
         className="bg-base-100 py-20"
       >
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-          <h2 className="text-4xl font-bold mb-6 text-center">
+          <h2 className="text-4xl text-primary font-bold mb-6 text-center">
             Les bilans et observations cliniques
           </h2>
           <p className="text-lg leading-relaxed mb-4">
@@ -85,7 +85,9 @@ export default function BilansSeances() {
         className="bg-base-200 py-20"
       >
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-          <h2 className="text-4xl font-bold mb-6 text-center">Les séances</h2>
+          <h2 className="text-4xl text-primary font-bold mb-6 text-center">
+            Les séances
+          </h2>
           <p className="text-lg leading-relaxed mb-4">
             Les séances durent 30 à 45 minutes et sont généralement
             hebdomadaires. Elles comprennent un temps d'échanges avec les
@@ -117,7 +119,7 @@ export default function BilansSeances() {
         className="bg-base-100 py-20"
       >
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-          <h2 className="text-4xl font-bold mb-6 text-center">
+          <h2 className="text-4xl text-primary font-bold mb-6 text-center">
             Les séances de relaxation pour adultes
           </h2>
           <p className="text-lg leading-relaxed mb-4">

@@ -34,7 +34,7 @@ export default function Psychomotricite() {
         className="bg-base-100 py-20"
       >
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-          <h2 className="text-4xl font-bold mb-6 text-center">
+          <h2 className="text-4xl text-primary font-bold mb-6 text-center">
             Qu’est-ce que la psychomotricité ?
           </h2>
           <p className="text-lg leading-relaxed mb-4">
@@ -67,7 +67,7 @@ export default function Psychomotricite() {
         className="bg-base-200 py-20"
       >
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-          <h2 className="text-4xl font-bold mb-6 text-center">
+          <h2 className="text-4xl text-primary font-bold mb-6 text-center">
             Pour qui et pourquoi ?
           </h2>
           <p className="text-lg leading-relaxed mb-6">
@@ -104,7 +104,7 @@ export default function Psychomotricite() {
         className="bg-base-100 py-20"
       >
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-          <h2 className="text-4xl font-bold mb-6 text-center">
+          <h2 className="text-4xl text-primary font-bold mb-6 text-center">
             Le bilan et les séances
           </h2>
           <p className="text-lg leading-relaxed mb-4">

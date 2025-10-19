@@ -4,7 +4,9 @@ const Footer = () => {
       <aside>
         <p className="font-semibold">
           © {new Date().getFullYear()} - Marion Couasse, Psychomotricienne D.E{" "}
-          <br />1 bis rue du stade, 14860 Ranville — Tel : 06.27.37.57.87
+          <br />
+          📍 1 bis rue du stade, 14860 Ranville — 📞 Tel : 06.27.37.57.87
+          <br />✉ marioncouasse.psychomot@gmail.com
         </p>
       </aside>
     </footer>
