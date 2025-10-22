@@ -1,5 +1,6 @@
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+"use client";
+import { Footer } from "./Footer";
+import { Navbar } from "./Navbar";
 
 type WrapperProps = {
   children: React.ReactNode;
