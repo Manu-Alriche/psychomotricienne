@@ -1,3 +1,4 @@
+"use client";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { motion } from "framer-motion";
@@ -57,7 +58,7 @@ const Bilan = ({
           psychomoteur. Il est alors possible de réorienter si besoin vers le·s
           professionnel·s compétent·s.
       `,
-      image: "/image_1.avif",
+      image: "/image_3.jpg",
     },
     {
       id: "feature-2",
@@ -93,7 +94,7 @@ const Bilan = ({
           Étant formée à différentes approches, je propose de la relaxation avec ou sans toucher 
           (Amma thérapeutique, mobilisations passives de Wintrebert, relaxation de Jacobson…).
       `,
-      image: "/image_3.jpg",
+      image: "/image_1.avif",
     },
   ],
 }: BilanProps) => {
@@ -129,20 +130,38 @@ const Bilan = ({
               </Button>
             )}
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
-            {features.map((feature) => (
+          <div className="grid grid-cols-2 grid-rows-2 gap-6 lg:gap-8">
+            {features.map((feature, index) => (
               <div
                 key={feature.id}
-                className="border-border flex flex-col overflow-clip rounded-xl border"
+                className={`
+        border-border overflow-clip rounded-xl border 
+        ${
+          index === 0
+            ? "col-span-2 flex flex-col md:flex-row"
+            : "row-start-2 flex flex-col"
+        }
+      `}
               >
-                <a>
+                {/* Image */}
+                <a className={`${index === 0 ? "md:w-1/2" : "w-full"}`}>
                   <img
                     src={feature.image}
                     alt={feature.heading}
-                    className="aspect-16/9 h-full w-full object-cover object-center transition-opacity hover:opacity-80"
+                    className={`h-full w-full object-cover object-center transition-opacity hover:opacity-80 ${
+                      index === 0 ? "aspect-auto" : "aspect-16/9"
+                    }`}
                   />
                 </a>
-                <div className="px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
+
+                {/* Contenu */}
+                <div
+                  className={`flex flex-col justify-center ${
+                    index === 0
+                      ? "md:w-1/2 p-8 md:p-10 lg:p-12"
+                      : "px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
+                  }`}
+                >
                   <h3 className="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">
                     {feature.heading}
                   </h3>

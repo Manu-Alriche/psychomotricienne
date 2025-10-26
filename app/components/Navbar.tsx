@@ -53,7 +53,7 @@ interface NavbarProps {
 const Navbar = ({
   logo = {
     url: "/",
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
+    src: "/logo_1.png",
     alt: "logo",
     title: "Marion Couasse",
   },
@@ -122,7 +122,7 @@ const Navbar = ({
   },
 }: NavbarProps) => {
   return (
-    <section className="py-5 border-b">
+    <nav className="py-5 border-b">
       <div className="container mx-auto">
         {/* Desktop Menu */}
         <nav className="hidden justify-between items-center w-full lg:flex">
@@ -157,7 +157,7 @@ const Navbar = ({
         </nav>
 
         {/* Mobile Menu */}
-        <div className="block lg:hidden">
+        <nav className="block lg:hidden">
           <div className="flex items-center justify-between px-5">
             {/* Logo */}
             <a href={logo.url} className="flex items-center gap-2">
@@ -206,9 +206,9 @@ const Navbar = ({
               </SheetContent>
             </Sheet>
           </div>
-        </div>
+        </nav>
       </div>
-    </section>
+    </nav>
   );
 };
 

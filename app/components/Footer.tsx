@@ -1,37 +1,36 @@
-import { useEffect, useState } from "react";
+"use client";
+import { useTheme } from "@/hooks/useTheme";
+import { Switch } from "@/app/components/ui/switch";
+import { Label } from "@/app/components/ui/label";
+import { Moon, Sun } from "lucide-react";
 
 interface FooterProps {
-  title: string;
-  description: string;
-  linkText: string;
-  linkUrl: string;
+  title?: string;
+  description?: string;
+  linkText?: string;
+  linkUrl?: string;
 }
 
-const Footer = ({
+export const Footer = ({
   title = "Marion Couasse, Psychomotricienne D.E",
   description = "1 bis rue du stade, 14860 Ranville — Tel : 06.27.37.57.87",
   linkText = "✉ marioncouasse.psychomot@gmail.com",
   linkUrl = "#contact",
 }: FooterProps) => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const html = document.documentElement;
-    if (isDark) html.classList.add("dark");
-    else html.classList.remove("dark");
-  }, [isDark]);
+  const { isDark, toggleTheme } = useTheme();
 
   return (
-    <section className="bg-background w-full border-t px-4 py-3 pt-8 pb-8">
-      <div className="flex items-center justify-between gap-2">
-        <div className="flex-1 text-center">
+    <footer className="bg-background w-full border-t px-4 py-8 transition-colors">
+      <div className="flex flex-col items-center justify-center gap-3 text-center">
+        <div>
           <span className="text-sm">
             <span className="font-medium">
               © {new Date().getFullYear()} - {title}
-            </span>{" "}
+            </span>
             <br />
             <span className="text-muted-foreground">
-              {description} <br />
+              {description}
+              <br />
               <a
                 href={linkUrl}
                 className="hover:text-foreground underline underline-offset-2"
@@ -42,12 +41,51 @@ const Footer = ({
             </span>
           </span>
         </div>
-        <button onClick={() => setIsDark(!isDark)}>
-          {isDark ? "Mode clair" : "Mode sombre"}
-        </button>
+        {/* Toggle Dark Mode */}
+        {/* <div className="flex items-center gap-3 mt-2">
+          <Sun className="h-5 w-5 text-yellow-500" />
+          <Switch
+            checked={isDark}
+            onCheckedChange={toggleTheme}
+            className="data-[state=checked]:bg-primary"
+          />
+          <Moon className="h-5 w-5 text-blue-500" />
+          <Label className="text-sm text-muted-foreground">
+            {isDark ? "Mode sombre" : "Mode clair"}
+          </Label>
+        </div> */}
+        <div className="flex items-center gap-3 mt-2 transition-all duration-500 ease-in-out">
+          <Sun
+            className={`h-5 w-5 transition-all duration-500 ${
+              isDark
+                ? "text-gray-400 scale-90 opacity-50"
+                : "text-yellow-500 scale-110 opacity-100"
+            }`}
+          />
+
+          <Switch
+            checked={isDark}
+            onCheckedChange={toggleTheme}
+            className="data-[state=checked]:bg-primary transition-all duration-500"
+          />
+
+          <Moon
+            className={`h-5 w-5 transition-all duration-500 ${
+              isDark
+                ? "text-blue-500 scale-110 opacity-100"
+                : "text-gray-400 scale-90 opacity-50"
+            }`}
+          />
+
+          <Label
+            className={`text-sm transition-all duration-500 ${
+              isDark ? "text-blue-500" : "text-yellow-600"
+            }`}
+          >
+            {isDark ? "Mode sombre" : "Mode clair"}
+          </Label>
+        </div>
       </div>
-    </section>
+    </footer>
   );
 };
-
-export { Footer };

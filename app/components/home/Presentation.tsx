@@ -93,13 +93,11 @@ const Presentation = ({
                 >
                   <ChevronDown
                     size={40}
-                    className="text-center cursor-pointer hover:opacity-80 transition"
+                    className=" text-primary text-center cursor-pointer hover:opacity-80 transition"
                     onClick={() => {
-                      document
-                        .getElementById("Cabinet de psychomotricité")
-                        ?.scrollIntoView({
-                          behavior: "smooth",
-                        });
+                      document.getElementById("cabinet")?.scrollIntoView({
+                        behavior: "smooth",
+                      });
                     }}
                   />
                 </motion.div>

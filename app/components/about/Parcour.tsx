@@ -25,7 +25,7 @@ const Parcour = () => {
           </div>
 
           {/* Contenu */}
-          <Card className="max-w-4xl mx-auto shadow-lg border-border/40">
+          <Card className="max-w-5xl mx-auto shadow-lg border-border/40">
             <CardContent className="p-8 text-left space-y-6 text-lg leading-relaxed">
               <p>
                 Diplômée depuis <strong>2016</strong> de l’Institut de Formation

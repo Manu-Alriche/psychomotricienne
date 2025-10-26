@@ -72,7 +72,7 @@ const Hero = ({
                 size={40}
                 className="text-primary cursor-pointer hover:opacity-80 transition"
                 onClick={() => {
-                  document.getElementById("cabinet")?.scrollIntoView({
+                  document.getElementById("parcours")?.scrollIntoView({
                     behavior: "smooth",
                   });
                 }}
@@ -83,7 +83,7 @@ const Hero = ({
             <img
               src="marion-couasse-psychomotricienne.webp"
               alt="Marion Couasse"
-              className="max-h-[600px] w-full rounded-md object-cover lg:max-h-[750px]"
+              className="max-h-[600px] w-xl rounded-md object-cover lg:max-h-[600px]"
             />
           </div>
         </div>

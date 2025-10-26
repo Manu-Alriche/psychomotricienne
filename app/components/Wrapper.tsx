@@ -1,4 +1,5 @@
 "use client";
+import Assistant from "./Assistant";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 
@@ -11,6 +12,7 @@ const Wrapper = ({ children }: WrapperProps) => {
     <div>
       <Navbar />
       <div>{children}</div>
+      <Assistant />
       <Footer />
     </div>
   );

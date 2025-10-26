@@ -26,7 +26,7 @@ const Aide = () => {
             psychomoteurs.
           </p>
 
-          <Card className="shadow-sm border border-border text-left">
+          <Card className="max-w-5xl mx-auto shadow-sm border border-border text-left">
             <CardHeader>
               <CardTitle className="text-3xl font-semibold md:text-4xl text-center">
                 Aides financières
