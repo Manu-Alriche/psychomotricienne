@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌿 Cabinet de Psychomotricité – Marion Couasse
 
-## Getting Started
+Site vitrine professionnel pour le cabinet de **Marion Couasse**, psychomotricienne D.E à Ranville (proche Caen, Cabourg).  
+Le site présente le parcours, les services, les bilans, ainsi que des informations pratiques et tarifaires.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Aperçu
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ce site a été conçu avec **Next.js 15**, **React**, et **Shadcn UI**, pour offrir :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Une interface moderne, claire et apaisante 🌱
+- Une expérience fluide sur tous les appareils (responsive)
+- Des animations subtiles grâce à **Framer Motion**
+- Une structure SEO-friendly et performante
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧱 Stack Technique
 
-To learn more about Next.js, take a look at the following resources:
+| Technologie                 | Rôle                                            |
+| --------------------------- | ----------------------------------------------- |
+| **Next.js 15 (App Router)** | Framework principal, rendu côté serveur (SSR)   |
+| **React 18**                | Gestion de l’interface et des composants        |
+| **Shadcn/UI**               | Librairie UI moderne basée sur Radix & Tailwind |
+| **Framer Motion**           | Animations et transitions fluides               |
+| **TypeScript**              | Typage et sécurité du code                      |
+| **TailwindCSS**             | Système de design réactif                       |
+| **Lucide React**            | Icônes élégantes et accessibles                 |
+| **Hostinger**               | Hébergement + messagerie professionnelle        |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📂 Structure du projet
 
-## Deploy on Vercel
+app/
+├── about/ → Page "À propos"
+├── bilans-seances/ → Page "Bilans & Séances"
+├── infos-utiles/ → Page "Infos utiles"
+├── psychomotricite/ → Page "La psychomotricité"
+├── components/ → Composants réutilisables (Navbar, Footer, Wrapper, etc.)
+├── globals.css → Styles globaux (avec Tailwind)
+├── layout.tsx → Layout global du site
+└── page.tsx → Page d’accueil
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🪄 Animation et expérience utilisateur
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Les sections principales utilisent Framer Motion pour animer l’apparition au scroll.
+
+Les transitions de page sont douces et adaptées à la lecture.
+
+Le menu de navigation est fixe, accessible et responsive.
+
+## 🪄 Animation et expérience utilisateur
+
+Les sections principales utilisent Framer Motion pour animer l’apparition au scroll.
+
+Les transitions de page sont douces et adaptées à la lecture.
+
+Le menu de navigation est fixe, accessible et responsive.
