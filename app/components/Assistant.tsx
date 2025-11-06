@@ -1,89 +1,4 @@
-// "use client";
-
-// import { useState } from "react";
-// import { MessageCircle, X } from "lucide-react";
-// import { Button } from "@/app/components/ui/button";
-// import {
-//   Card,
-//   CardContent,
-//   CardHeader,
-//   CardTitle,
-// } from "@/app/components/ui/card";
-// import { motion, AnimatePresence } from "framer-motion";
-
-// export default function ContactAssistant() {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <div className="fixed bottom-6 right-6 z-50">
-//       <AnimatePresence>
-//         {isOpen ? (
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             exit={{ opacity: 0, y: 20 }}
-//             transition={{ duration: 0.25 }}
-//             className="relative"
-//           >
-//             <Card className="w-80 shadow-2xl border-border bg-background">
-//               <CardHeader className="flex flex-row items-center justify-between pb-2">
-//                 <CardTitle className="text-base font-semibold">
-//                   💬 Besoin d’aide ?
-//                 </CardTitle>
-//                 <Button
-//                   variant="ghost"
-//                   size="icon"
-//                   onClick={() => setIsOpen(false)}
-//                 >
-//                   <X className="h-4 w-4" />
-//                 </Button>
-//               </CardHeader>
-//               <CardContent className="text-sm text-muted-foreground space-y-3">
-//                 <p>Bonjour 👋 Je suis Marion, psychomotricienne à Ranville.</p>
-//                 <p>
-//                   Vous pouvez me contacter :
-//                   <br />
-//                   <strong>📞 06.27.37.57.87</strong>
-//                   <br />
-//                   <strong>✉ marioncouasse.psychomot@gmail.com</strong>
-//                 </p>
-//                 <p>
-//                   Je réponds sous 24h à vos demandes de contact ou de
-//                   rendez-vous.
-//                 </p>
-//                 <Button
-//                   className="w-full mt-2"
-//                   onClick={() => (window.location.href = "#contact")}
-//                 >
-//                   Accéder au formulaire
-//                 </Button>
-//               </CardContent>
-//             </Card>
-//           </motion.div>
-//         ) : null}
-//       </AnimatePresence>
-
-//       {!isOpen && (
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ delay: 0.2 }}
-//         >
-//           <Button
-//             size="icon"
-//             className="rounded-full h-14 w-14 shadow-lg bg-primary text-white hover:bg-primary/80"
-//             onClick={() => setIsOpen(true)}
-//           >
-//             <MessageCircle className="h-6 w-6" />
-//           </Button>
-//         </motion.div>
-//       )}
-//     </div>
-//   );
-// }
-
 "use client";
-
 import { useState, useEffect } from "react";
 import { MessageCircle, X, Send, Trash2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -169,6 +84,12 @@ export default function Assistant() {
     ]);
     localStorage.removeItem("chatMessages");
   };
+
+  useEffect(() => {
+    const openChat = () => setIsOpen(true);
+    document.addEventListener("openChatMarion", openChat);
+    return () => document.removeEventListener("openChatMarion", openChat);
+  }, []);
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

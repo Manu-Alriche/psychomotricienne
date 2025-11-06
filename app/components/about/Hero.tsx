@@ -1,8 +1,10 @@
-import { ArrowDownRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight, ChevronDown } from "lucide-react";
+import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";
 import { motion } from "framer-motion";
 
 interface HeroProps {
+  badge?: string;
   heading?: string;
   description?: string;
   buttons?: {
@@ -18,8 +20,9 @@ interface HeroProps {
 }
 
 const Hero = ({
+  badge = "✨ Psychomotricienne à Ranville (proche Caen)",
   heading = "Marion Couasse, Psychomotricienne D.E",
-  description = "Membre de l’Association Française des Psychomotriciens Libéraux (AFPL)",
+  description = "Numéro SIRET : 93051265200015 / RPPS : 10007273534",
   buttons = {
     primary: {
       text: "Contact",
@@ -36,17 +39,24 @@ const Hero = ({
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="bg-base-100 py-10"
+      className="bg-base-100 py-20"
     >
       <section>
         <div className="container mx-auto grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
           <div className="mx-auto flex flex-col items-center text-center md:ml-auto lg:max-w-3xl lg:items-start lg:text-left">
+            {badge && (
+              <Badge variant="outline">
+                {badge}
+                <ArrowUpRight className="ml-2 size-4" />
+              </Badge>
+            )}
             <h1 className="my-6 text-pretty text-4xl font-bold lg:text-5xl xl:text-6xl">
               {heading}
             </h1>
             <p className="text-muted-foreground mb-4 max-w-xl">{description}</p>
             <p className="text-muted-foreground mb-8 max-w-xl lg:text-xl">
-              Numéro SIRET : 93051265200015 / RPPS : 10007273534
+              Membre de l’Association Française des Psychomotriciens Libéraux
+              (AFPL)
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {buttons.primary && (

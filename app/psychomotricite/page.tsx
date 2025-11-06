@@ -5,7 +5,9 @@ import Psychomot from "../components/psychomot/Psychomot";
 export default function Psychomotricite() {
   return (
     <Wrapper>
-      <Psychomot />
+      <div className="mt-20">
+        <Psychomot />
+      </div>
     </Wrapper>
   );
 }

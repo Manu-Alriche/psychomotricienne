@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
       <Wrapper>
-        <div className="px-5">
+        <div className="mt-20">
           <Presentation />
           <Main />
           <Contact />

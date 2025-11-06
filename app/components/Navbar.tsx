@@ -62,51 +62,51 @@ const Navbar = ({
     {
       title: "Psychomotricité",
       url: "/psychomotricite",
-      items: [
-        {
-          title: "Qu’est-ce que la psychomotricité ?",
-          description: "Harmonise corps et esprit par le mouvement",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/psychomotricite",
-        },
-        {
-          title: "Pour qui et pourquoi ?",
-          description: "Aide tous âges face aux difficultés motrices",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/psychomotricite",
-        },
-        {
-          title: "Le bilan et les séances",
-          description: "Evaluent besoins et favorisent bien-être global",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/psychomotricite",
-        },
-      ],
+      // items: [
+      //   {
+      //     title: "Qu’est-ce que la psychomotricité ?",
+      //     description: "Harmonise corps et esprit par le mouvement",
+      //     icon: <Book className="size-5 shrink-0" />,
+      //     url: "/psychomotricite",
+      //   },
+      //   {
+      //     title: "Pour qui et pourquoi ?",
+      //     description: "Aide tous âges face aux difficultés motrices",
+      //     icon: <Trees className="size-5 shrink-0" />,
+      //     url: "/psychomotricite",
+      //   },
+      //   {
+      //     title: "Le bilan et les séances",
+      //     description: "Evaluent besoins et favorisent bien-être global",
+      //     icon: <Sunset className="size-5 shrink-0" />,
+      //     url: "/psychomotricite",
+      //   },
+      // ],
     },
     {
       title: "Bilans & Séances",
       url: "/bilans-seances",
-      items: [
-        {
-          title: "Les bilans et observations cliniques",
-          description: "Evaluent capacités, besoins et évolution psychomotrice",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/bilans-seances",
-        },
-        {
-          title: "Les séances",
-          description: "Développent motricité, équilibre et confiance en soi",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/bilans-seances",
-        },
-        {
-          title: "Les séances de relaxation pour adultes",
-          description:
-            "Apaisent tensions physiques et mentales, favorisant bien-être",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/bilans-seances",
-        },
-      ],
+      // items: [
+      //   {
+      //     title: "Les bilans et observations cliniques",
+      //     description: "Evaluent capacités, besoins et évolution psychomotrice",
+      //     icon: <Zap className="size-5 shrink-0" />,
+      //     url: "/bilans-seances",
+      //   },
+      //   {
+      //     title: "Les séances",
+      //     description: "Développent motricité, équilibre et confiance en soi",
+      //     icon: <Sunset className="size-5 shrink-0" />,
+      //     url: "/bilans-seances",
+      //   },
+      //   {
+      //     title: "Les séances de relaxation pour adultes",
+      //     description:
+      //       "Apaisent tensions physiques et mentales, favorisant bien-être",
+      //     icon: <Trees className="size-5 shrink-0" />,
+      //     url: "/bilans-seances/#feature-3",
+      //   },
+      // ],
     },
     {
       title: "Infos utiles",
@@ -118,11 +118,11 @@ const Navbar = ({
       title: "Prendre rendez-vous",
       url: "https://docorga.com/praticien/66deb2fdfe355c835a95fd2f",
     },
-    buttonB: { title: "Contact", url: "#contact" },
+    buttonB: { title: "Contact", url: "/#contact" },
   },
 }: NavbarProps) => {
   return (
-    <nav className="py-5 border-b">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 py-5 backdrop-blur-sm shadow-sm border-b">
       <div className="container mx-auto">
         {/* Desktop Menu */}
         <nav className="hidden justify-between items-center w-full lg:flex">

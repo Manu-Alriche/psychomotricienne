@@ -17,12 +17,7 @@ interface MainProps {
 }
 
 const Main = ({
-  heading = (
-    <>
-      Cabinet de psychomotricité à Ranville, <br />
-      Au sein de la Maison de Santé Pluridisciplinaire (CAEN)
-    </>
-  ),
+  heading = "Marion Couasse, Psychomotricienne D.E",
   imageSrc = "./image_4.jpg",
   imageAlt = "Cabinet de psychomotricité à Ranville",
   features = [
@@ -59,6 +54,10 @@ const Main = ({
         <div className="container mx-auto overflow-hidden">
           <div className="mb-20 flex flex-col items-center gap-6 text-center">
             <h1 className="text-4xl font-semibold lg:text-4xl">{heading}</h1>
+            <p className="text-xl italic text-muted-foreground max-w-2xl">
+              J’accueille les bébés, enfants et adultes pour des bilans et
+              séances de psychomotricité.
+            </p>
           </div>
           <div className="relative mx-auto max-w-5xl">
             <img

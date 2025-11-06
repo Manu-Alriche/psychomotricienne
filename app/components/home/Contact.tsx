@@ -21,7 +21,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    let newErrors: Record<string, string> = {};
+    const newErrors: Record<string, string> = {};
     if (!formData.name) newErrors.name = "Nom requis";
     if (!formData.email) newErrors.email = "Email requis";
     if (!formData.subject) newErrors.subject = "Sujet requis";
@@ -63,9 +63,9 @@ const Contact = () => {
 
           {/* Formulaire de contact */}
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-bold lg:text-4xl">Contactez-nous</h2>
+            <h2 className="text-3xl font-bold lg:text-4xl">Me contacter</h2>
             <p className="text-muted-foreground max-w-lg">
-              Remplissez le formulaire ci-dessous et nous reviendrons vers vous
+              Remplissez le formulaire ci-dessous et je reviendrais vers vous
               rapidement.
             </p>
 

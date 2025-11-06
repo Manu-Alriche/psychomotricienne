@@ -13,7 +13,7 @@ interface FooterProps {
 
 export const Footer = ({
   title = "Marion Couasse, Psychomotricienne D.E",
-  description = "1 bis rue du stade, 14860 Ranville — Tel : 06.27.37.57.87",
+  description = "1 bis rue du stade, 14860 Ranville — Tel : 06.27.37.57.87 —  ",
   linkText = "✉ marioncouasse.psychomot@gmail.com",
   linkUrl = "#contact",
 }: FooterProps) => {
@@ -30,7 +30,6 @@ export const Footer = ({
             <br />
             <span className="text-muted-foreground">
               {description}
-              <br />
               <a
                 href={linkUrl}
                 className="hover:text-foreground underline underline-offset-2"
@@ -41,19 +40,6 @@ export const Footer = ({
             </span>
           </span>
         </div>
-        {/* Toggle Dark Mode */}
-        {/* <div className="flex items-center gap-3 mt-2">
-          <Sun className="h-5 w-5 text-yellow-500" />
-          <Switch
-            checked={isDark}
-            onCheckedChange={toggleTheme}
-            className="data-[state=checked]:bg-primary"
-          />
-          <Moon className="h-5 w-5 text-blue-500" />
-          <Label className="text-sm text-muted-foreground">
-            {isDark ? "Mode sombre" : "Mode clair"}
-          </Label>
-        </div> */}
         <div className="flex items-center gap-3 mt-2 transition-all duration-500 ease-in-out">
           <Sun
             className={`h-5 w-5 transition-all duration-500 ${

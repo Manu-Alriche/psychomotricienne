@@ -7,9 +7,11 @@ import Formation from "../components/about/Formation";
 export default function About() {
   return (
     <Wrapper>
-      <Hero />
-      <Parcour />
-      <Formation />
+      <div className="mt-20">
+        <Hero />
+        <Parcour />
+        <Formation />
+      </div>
     </Wrapper>
   );
 }

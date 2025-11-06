@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import Assistant from "../Assistant";
 
 interface ContactProps {
   title?: string;
@@ -19,7 +20,7 @@ interface ContactProps {
 }
 
 const Contact = ({
-  title = "Nous contactez",
+  title = "Me contacter",
   description = "Pour toute question ou prise de rendez-vous, n’hésitez pas à me contacter.",
   emailLabel = "Email",
   emailDescription = "Je vous répondrai dans un délai de 24 heures.",
@@ -31,8 +32,8 @@ const Contact = ({
   phoneDescription = "Je suis disponible du lundi au jeudi, de 9h à 17h",
   phone = "06.27.37.57.87",
   chatLabel = "Live Chat",
-  chatDescription = "Get instant help from our support team.",
-  chatLink = "Start Chat",
+  chatDescription = "Obtenez une assistance immédiate de mon Chat.",
+  chatLink = "Lancer le Chat",
 }: ContactProps) => {
   return (
     <motion.section
@@ -96,7 +97,14 @@ const Contact = ({
               </span>
               <p className="mb-2 text-lg font-semibold">{chatLabel}</p>
               <p className="text-muted-foreground mb-3">{chatDescription}</p>
-              <a href="#" className="font-semibold hover:underline">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.dispatchEvent(new CustomEvent("openChatMarion"));
+                }}
+                className="font-semibold hover:underline"
+              >
                 {chatLink}
               </a>
             </div>

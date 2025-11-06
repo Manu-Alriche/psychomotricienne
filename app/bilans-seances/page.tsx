@@ -5,7 +5,9 @@ import Bilan from "../components/bilansSeances/Bilan";
 export default function BilansSeances() {
   return (
     <Wrapper>
-      <Bilan />
+      <div className="mt-20">
+        <Bilan />
+      </div>
     </Wrapper>
   );
 }
