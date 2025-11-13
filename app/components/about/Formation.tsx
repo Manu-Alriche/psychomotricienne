@@ -10,34 +10,39 @@ type FormationEntry = {
 
 const formationData: FormationEntry[] = [
   {
-    date: "1956",
-    title: "A. Bullinger",
-    content: "Sensibilisation à l’approche sensori-motrice",
+    date: "2025",
+    title: "Octo-Opus Formation",
+    content: "Formation Troubles sensoriels dans les TND",
   },
   {
-    date: "1966-1973",
-    title: "Hôpital Avicenne",
-    content: "Sensibilisation / formation au psycho-traumatisme",
+    date: "2024",
+    title: "Massage Bébé Shantala",
+    content: "Formation Massage Bébé Shantala",
   },
   {
-    date: "1980-1987",
-    title: "RESPIR' Formation",
-    content: "Formation au Amma Thérapeutique",
-  },
-  {
-    date: "1997",
-    title: "AFDET",
-    content: "Formation en Éducation Thérapeutique du Patient",
-  },
-  {
-    date: "1997",
+    date: "2023 - 2024",
     title: "RESPIR' Formation",
     content: "Formation en graphomotricité (acte graphique)",
   },
   {
-    date: "1997",
-    title: "Massage Bébé Shantala",
-    content: "Formation Massage Bébé Shantala",
+    date: "2022 - 2023",
+    title: "AFDET",
+    content: "Formation en Éducation Thérapeutique du Patient",
+  },
+  {
+    date: "2020 - 2021",
+    title: "RESPIR' Formation",
+    content: "Formation au Amma Thérapeutique",
+  },
+  {
+    date: "2021 - 2022",
+    title: "Hôpital Avicenne",
+    content: "Sensibilisation / formation au psycho-traumatisme",
+  },
+  {
+    date: "1956",
+    title: "A. Bullinger",
+    content: "Sensibilisation à l’approche sensori-motrice",
   },
 ];
 
@@ -53,31 +58,28 @@ const Formation = () => {
     >
       <section className="bg-background">
         <div className="container mx-auto">
-          <h1 className="text-foreground mb-10 text-center text-3xl font-bold tracking-tighter sm:text-4xl">
+          <h2 className="text-foreground mb-10 text-center text-3xl font-bold tracking-tighter sm:text-4xl">
             Mes formations complémentaires
-          </h1>
-          <div className="relative mx-auto max-w-xl">
+          </h2>
+          <div className="relative mx-auto max-w-xl" role="list">
             <Separator
               orientation="vertical"
               className="bg-muted absolute left-2 top-4"
             />
             {formationData.map((entry, index) => (
-              <div key={index} className="relative mb-10 pl-8">
+              <div key={index} className="relative mb-10 pl-8" role="listitem">
                 <div className="bg-foreground absolute left-0 top-3.5 flex size-4 items-center justify-center rounded-full" />
-                <h4 className="rounded-xl py-2 text-xl font-bold tracking-tight xl:mb-4 xl:px-3">
+                <h3 className="rounded-xl py-2 text-xl font-bold tracking-tight xl:mb-4 xl:px-3">
                   {entry.title}
-                </h4>
+                </h3>
 
-                <h5 className="text-md -left-34 text-muted-foreground top-3 rounded-xl tracking-tight xl:absolute">
+                <h4 className="text-md -left-34 text-muted-foreground top-3 rounded-xl tracking-tight xl:absolute">
                   {entry.date}
-                </h5>
+                </h4>
 
                 <Card className="my-5 border-none shadow-none">
                   <CardContent className="px-0 xl:px-2">
-                    <div
-                      className="prose dark:prose-invert text-foreground"
-                      dangerouslySetInnerHTML={{ __html: entry.content }}
-                    />
+                    <p className="text-foreground">{entry.content}</p>
                   </CardContent>
                 </Card>
               </div>

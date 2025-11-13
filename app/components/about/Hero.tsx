@@ -1,3 +1,4 @@
+"use client";
 import { ArrowUpRight, ArrowDownRight, ChevronDown } from "lucide-react";
 import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";
@@ -39,7 +40,8 @@ const Hero = ({
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="bg-base-100 py-20"
+      viewport={{ once: true }}
+      className="bg-base-100 py-25"
     >
       <section>
         <div className="container mx-auto grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
@@ -47,7 +49,7 @@ const Hero = ({
             {badge && (
               <Badge variant="outline">
                 {badge}
-                <ArrowUpRight className="ml-2 size-4" />
+                <ArrowUpRight aria-hidden="true" className="ml-2 size-4" />
               </Badge>
             )}
             <h1 className="my-6 text-pretty text-4xl font-bold lg:text-5xl xl:text-6xl">
@@ -68,7 +70,7 @@ const Hero = ({
                 <Button asChild variant="outline">
                   <a href={buttons.secondary.url}>
                     {buttons.secondary.text}
-                    <ArrowDownRight className="size-4" />
+                    <ArrowDownRight aria-hidden="true" className="size-4" />
                   </a>
                 </Button>
               )}
@@ -86,14 +88,15 @@ const Hero = ({
                     behavior: "smooth",
                   });
                 }}
+                aria-label="Faire défiler vers mon parcours"
               />
             </motion.div>
           </div>
           <div className="flex">
             <img
               src="marion-couasse-psychomotricienne.webp"
-              alt="Marion Couasse"
-              className="max-h-[600px] w-xl rounded-md object-cover lg:max-h-[600px]"
+              alt="Photo de Marion Couasse, psychomotricienne à Ranville (proche Caen)"
+              className="max-h-[600px] w-xl rounded-md object-cover lg:max-h-[650px]"
             />
           </div>
         </div>

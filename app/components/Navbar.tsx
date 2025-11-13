@@ -1,3 +1,4 @@
+"use client";
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 import {
   Accordion,
@@ -21,6 +22,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/app/components/ui/sheet";
+import { useMemo } from "react";
+import Link from "next/link";
 
 interface MenuItem {
   title: string;
@@ -54,7 +57,7 @@ const Navbar = ({
   logo = {
     url: "/",
     src: "/logo_1.png",
-    alt: "logo",
+    alt: "Logo du cabinet de psychomotricité Marion Couasse",
     title: "Marion Couasse",
   },
   menu = [
@@ -121,14 +124,23 @@ const Navbar = ({
     buttonB: { title: "Contact", url: "/#contact" },
   },
 }: NavbarProps) => {
+  const memoMenu = useMemo(() => menu, [menu]);
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 py-5 backdrop-blur-sm shadow-sm border-b">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 bg-background/90 py-5 backdrop-blur-sm shadow-sm border-b"
+      role="navigation"
+      aria-label="Navigation principale"
+    >
       <div className="container mx-auto">
         {/* Desktop Menu */}
         <nav className="hidden justify-between items-center w-full lg:flex">
           <div className="flex items-center justify-between w-full px-5">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link
+              href={logo.url}
+              className="flex items-center gap-2"
+              aria-label="Accueil"
+            >
               <img
                 src={logo.src}
                 className="max-h-8 dark:invert"
@@ -137,7 +149,7 @@ const Navbar = ({
               <span className="text-lg font-semibold tracking-tighter">
                 {logo.title}
               </span>
-            </a>
+            </Link>
             <div className="flex items-center gap-10">
               <NavigationMenu>
                 <NavigationMenuList>
@@ -148,10 +160,10 @@ const Navbar = ({
           </div>
           <div className="flex gap-2">
             <Button asChild variant="outline" size="sm">
-              <a href={btn.buttonA.url}>{btn.buttonA.title}</a>
+              <Link href={btn.buttonA.url}>{btn.buttonA.title}</Link>
             </Button>
             <Button asChild size="sm">
-              <a href={btn.buttonB.url}>{btn.buttonB.title}</a>
+              <Link href={btn.buttonB.url}>{btn.buttonB.title}</Link>
             </Button>
           </div>
         </nav>
@@ -160,29 +172,40 @@ const Navbar = ({
         <nav className="block lg:hidden">
           <div className="flex items-center justify-between px-5">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link
+              href={logo.url}
+              className="flex items-center gap-2"
+              aria-label="Accueil"
+            >
               <img
                 src={logo.src}
                 className="max-h-8 dark:invert"
                 alt={logo.alt}
               />
-            </a>
+            </Link>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  aria-label="Ouvrir le menu mobile"
+                >
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
+              <SheetContent
+                className="overflow-y-auto"
+                aria-label="Menu mobile"
+              >
                 <SheetHeader>
                   <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
+                    <Link href={logo.url} className="flex items-center gap-2">
                       <img
                         src={logo.src}
                         className="max-h-8 dark:invert"
                         alt={logo.alt}
                       />
-                    </a>
+                    </Link>
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 p-4">
@@ -196,10 +219,10 @@ const Navbar = ({
 
                   <div className="flex flex-col gap-3">
                     <Button asChild variant="outline">
-                      <a href={btn.buttonA.url}>{btn.buttonA.title}</a>
+                      <Link href={btn.buttonA.url}>{btn.buttonA.title}</Link>
                     </Button>
                     <Button asChild>
-                      <a href={btn.buttonB.url}>{btn.buttonB.title}</a>
+                      <Link href={btn.buttonB.url}>{btn.buttonB.title}</Link>
                     </Button>
                   </div>
                 </div>
@@ -219,7 +242,12 @@ const renderMenuItem = (item: MenuItem) => {
         <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
         <NavigationMenuContent className="bg-popover text-popover-foreground">
           {item.items.map((subItem) => (
-            <NavigationMenuLink asChild key={subItem.title} className="w-80">
+            <NavigationMenuLink
+              asChild
+              key={subItem.title}
+              className="w-80"
+              role="menuitem"
+            >
               <SubMenuLink item={subItem} />
             </NavigationMenuLink>
           ))}
@@ -257,17 +285,23 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
+    <Link
+      key={item.title}
+      href={item.url}
+      className="text-md font-semibold"
+      role="menuitem"
+    >
       {item.title}
-    </a>
+    </Link>
   );
 };
 
 const SubMenuLink = ({ item }: { item: MenuItem }) => {
   return (
-    <a
+    <Link
       className="hover:bg-muted hover:text-accent-foreground flex min-w-80 select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
       href={item.url}
+      role="menuitem"
     >
       <div className="text-foreground">{item.icon}</div>
       <div>
@@ -278,7 +312,7 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
           </p>
         )}
       </div>
-    </a>
+    </Link>
   );
 };
 

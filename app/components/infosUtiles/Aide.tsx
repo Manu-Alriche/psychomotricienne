@@ -14,7 +14,7 @@ const Aide = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="bg-base-100 py-20"
+      className="bg-base-100 py-15"
     >
       <section>
         <div className="container">

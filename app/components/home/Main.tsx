@@ -1,3 +1,4 @@
+"use client";
 import { HandHelping, Users, Zap } from "lucide-react";
 import React from "react";
 import { Separator } from "@/app/components/ui/separator";
@@ -18,7 +19,7 @@ interface MainProps {
 
 const Main = ({
   heading = "Marion Couasse, Psychomotricienne D.E",
-  imageSrc = "./image_4.jpg",
+  imageSrc = "./image_4.webp",
   imageAlt = "Cabinet de psychomotricité à Ranville",
   features = [
     {
@@ -53,7 +54,7 @@ const Main = ({
       <section>
         <div className="container mx-auto overflow-hidden">
           <div className="mb-20 flex flex-col items-center gap-6 text-center">
-            <h1 className="text-4xl font-semibold lg:text-4xl">{heading}</h1>
+            <h2 className="text-4xl font-semibold lg:text-4xl">{heading}</h2>
             <p className="text-xl italic text-muted-foreground max-w-2xl">
               J’accueille les bébés, enfants et adultes pour des bilans et
               séances de psychomotricité.
@@ -69,7 +70,10 @@ const Main = ({
             <div className="absolute -right-28 -top-28 -z-10 aspect-video h-72 w-96 opacity-40 [background-size:12px_12px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)] sm:bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)]"></div>
             <div className="absolute -left-28 -top-28 -z-10 aspect-video h-72 w-96 opacity-40 [background-size:12px_12px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)] sm:bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)]"></div>
           </div>
-          <div className="mx-auto mt-10 flex max-w-5xl flex-col md:flex-row">
+          <div
+            className="mx-auto mt-10 flex max-w-5xl flex-col md:flex-row"
+            aria-label="Informations principales du cabinet de psychomotricité"
+          >
             {features.map((feature, index) => (
               <React.Fragment key={feature.title}>
                 {index > 0 && (

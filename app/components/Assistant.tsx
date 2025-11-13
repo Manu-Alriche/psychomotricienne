@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MessageCircle, X, Send, Trash2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/app/components/ui/button";
@@ -18,6 +18,8 @@ export default function Assistant() {
     { from: "user" | "bot"; text: string }[]
   >([]);
   const [input, setInput] = useState("");
+
+  const contentRef = useRef<HTMLDivElement>(null);
 
   // --- 🔄 Charger depuis localStorage ---
   useEffect(() => {
@@ -40,6 +42,12 @@ export default function Assistant() {
   useEffect(() => {
     localStorage.setItem("chatMessages", JSON.stringify(messages));
     localStorage.setItem("chatOpen", String(isOpen));
+
+    // Auto-scroll vers le bas
+    contentRef.current?.scrollTo({
+      top: contentRef.current.scrollHeight,
+      behavior: "smooth",
+    });
   }, [messages, isOpen]);
 
   // --- ✉ Envoi message ---
@@ -112,6 +120,7 @@ export default function Assistant() {
                     size="icon"
                     onClick={clearChat}
                     title="Effacer l’historique"
+                    aria-label="Effacer l’historique du chat"
                   >
                     <Trash2 className="h-4 w-4 text-muted-foreground hover:text-destructive" />
                   </Button>
@@ -120,13 +129,18 @@ export default function Assistant() {
                     size="icon"
                     onClick={() => setIsOpen(false)}
                     title="Fermer"
+                    aria-label="Fermer le chat"
                   >
                     <X className="h-4 w-4" />
                   </Button>
                 </div>
               </CardHeader>
 
-              <CardContent className="flex-1 overflow-y-auto space-y-3 py-3">
+              <CardContent
+                className="flex-1 overflow-y-auto space-y-3 py-3"
+                ref={contentRef}
+                id="chat-container"
+              >
                 {messages.map((msg, i) => (
                   <div
                     key={i}
@@ -154,8 +168,13 @@ export default function Assistant() {
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Écrire un message..."
                   className="text-sm"
+                  aria-label="Message à envoyer"
                 />
-                <Button size="icon" onClick={handleSend}>
+                <Button
+                  size="icon"
+                  onClick={handleSend}
+                  aria-label="Envoyer le message"
+                >
                   <Send className="h-4 w-4" />
                 </Button>
               </CardFooter>
@@ -174,6 +193,7 @@ export default function Assistant() {
             size="icon"
             className="rounded-full h-14 w-14 shadow-lg bg-primary text-white hover:bg-primary/80"
             onClick={() => setIsOpen(true)}
+            aria-label="Ouvrir le chat Marion"
           >
             <MessageCircle className="h-6 w-6" />
           </Button>

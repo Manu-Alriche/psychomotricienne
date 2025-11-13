@@ -29,9 +29,10 @@ const Bilan = ({
       id: "feature-1",
       heading: "Les bilans et observations cliniques",
       description: `
-        Le bilan psychomoteur regroupe plusieurs tests standardisés permettant d'observer un âge développemental et/ou des difficultés et des compétences.<br/>
+        <p>Le bilan psychomoteur regroupe plusieurs tests standardisés permettant d'observer un âge développemental et/ou des difficultés et des compétences.</p>
         <br/>
-        Il évalue différents domaines :<br/>
+        Il évalue différents domaines :
+        <br/>
           <li>La motricité globale et fine</li>
           <li>Les représentations du corps</li>
           <li>Les coordinations</li>
@@ -40,25 +41,26 @@ const Bilan = ({
           <li>La compréhension</li>
           <li>Les compétences graphomotrices</li>
           <li>Le tonus musculaire</li>
+        
             <br/>
-          Quand un enfant n'est pas encore accessible à la situation de bilan,
+          <p>Quand un enfant n'est pas encore accessible à la situation de bilan,
           il est possible de réaliser une observation de son développement
-          dans différentes situations de jeux.<br/>
+          dans différentes situations de jeux.</p>
             <br/>
-          Ces deux temps sont toujours précédés d'une anamnèse où le·a
+          <p>Ces deux temps sont toujours précédés d'une anamnèse où le·a
           psychomotricien·ne échange avec le patient (et les parents pour les
           enfants) sur les difficultés qui l'amènent à consulter, le
           développement de l'enfant, son quotidien, les antécédents familiaux,
-          etc.<br/>
+          etc.</p>
             <br/>
-          À l'issue du bilan, les observations seront restituées à la famille
+          <p>À l'issue du bilan, les observations seront restituées à la famille
           et au médecin prescripteur. Le·a psychomotricien·ne proposera des
           axes thérapeutiques pour la suite de la prise en charge. Il est
           parfois possible que le bilan ne montre pas de nécessité de suivi
           psychomoteur. Il est alors possible de réorienter si besoin vers le·s
-          professionnel·s compétent·s.
+          professionnel·s compétent·s.</p>
       `,
-      image: "/image_3.jpg",
+      image: "/image_3.webp",
     },
     {
       id: "feature-2",
@@ -77,7 +79,7 @@ const Bilan = ({
           <li>Jeux de régulation tonique</li>
           <li>Expressivité et conscience corporelle</li>  
       `,
-      image: "/image_2.png",
+      image: "/image_2.webp",
     },
     {
       id: "feature-3",
@@ -94,7 +96,7 @@ const Bilan = ({
           Étant formée à différentes approches, je propose de la relaxation avec ou sans toucher 
           (Amma thérapeutique, mobilisations passives de Wintrebert, relaxation de Jacobson…).
       `,
-      image: "/image_1.avif",
+      image: "/image_13.webp",
     },
   ],
 }: BilanProps) => {
@@ -105,14 +107,15 @@ const Bilan = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="bg-base-100 py-20"
+      aria-label="Bilans et séances"
+      className="bg-base-100 py-15"
     >
       <section>
         <div className="container">
           <div className="mb-8 lg:max-w-sm">
-            <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
+            <h1 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
               {title}
-            </h2>
+            </h1>
             {description && (
               <p className="text-muted-foreground mb-8 lg:text-lg">
                 {description}
@@ -162,9 +165,9 @@ const Bilan = ({
                       : "px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12"
                   }`}
                 >
-                  <h3 className="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">
+                  <h2 className="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">
                     {feature.heading}
-                  </h3>
+                  </h2>
                   <p
                     className="text-muted-foreground lg:text-lg"
                     dangerouslySetInnerHTML={{ __html: feature.description }}

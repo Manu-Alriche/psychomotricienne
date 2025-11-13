@@ -29,30 +29,30 @@ const Psychomot = ({
       id: "feature-1",
       heading: "Qu’est-ce que la psychomotricité ?",
       description: `
-        Le.a psychomotricien.ne est un professionnel de santé paramédical,
-            qui reçoit sur prescription médicale.<br/>
+        <p>Le.a psychomotricien.ne est un professionnel de santé paramédical,
+            qui reçoit sur prescription médicale.</p>
         <br/>
         
-          La psychomotricité se définit par la liaison entre les capacités
+          <p>La psychomotricité se définit par la liaison entre les capacités
             neurologiques, psychologiques et les capacités motrices. C’est un
             domaine de soin se situant à la fois dans la prévention, la
-            rééducation et la thérapie.<br/>
+            rééducation et la thérapie.</p>
             <br/>
-           La personne, quel que soit son âge, est considérée dans la globalité
+           <p>La personne, quel que soit son âge, est considérée dans la globalité
             de son développement et de son équilibre psychomoteur (motricité
             globale et fine, équilibre, coordinations, relation à soi, à son
             corps, aux autres et à son environnement, autonomie,
-            apprentissages…).
+            apprentissages…).</p>
       `,
-      image: "/image_1.avif",
+      image: "/image_2.webp",
     },
     {
       id: "feature-2",
       heading: "Pour qui et pourquoi ?",
       description: `
-        Toute personne rencontrant des difficultés psychologiques,
+        <p>Toute personne rencontrant des difficultés psychologiques,
             neurologiques ou psychiques impactant ses capacités motrices ou
-            inversement, peut consulter un.e psychomotricien.ne.<br/>
+            inversement, peut consulter un.e psychomotricien.ne.</p>
             <br/>
             <li>Troubles neuro-génétiques</li>
             <li>Retards de développement</li>
@@ -69,22 +69,22 @@ const Psychomot = ({
             <li>Troubles psychiques</li>
          
       `,
-      image: "/image_2.png",
+      image: "/image_11.webp",
     },
     {
       id: "feature-3",
       heading: "Le bilan et les séances",
       description: `
-        Un bilan psychomoteur est souvent proposé afin d’évaluer les
-            capacités et les difficultés du patient.<br/>
+        <p>Un bilan psychomoteur est souvent proposé afin d’évaluer les
+            capacités et les difficultés du patient.</p>
             <br/>
-           Les différents axes thérapeutiques, propres à chaque patient, seront
-            ensuite travaillés en séance.<br/>
-           Différentes médiations psychocorporelles et ludiques sont utilisées
+           <p>Les différents axes thérapeutiques, propres à chaque patient, seront
+            ensuite travaillés en séance.</p><br/>
+           <p>Différentes médiations psychocorporelles et ludiques sont utilisées
             : jeux, exercices corporels, relaxation, activités sensorielles et
-            motrices adaptées.
+            motrices adaptées.</p>
       `,
-      image: "/image_3.jpg",
+      image: "/image_3.webp",
     },
   ],
 }: PsychomotProps) => {
@@ -95,14 +95,14 @@ const Psychomot = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="bg-base-100 py-20"
+      className="bg-base-100 py-15"
     >
       <section>
         <div className="container">
           <div className="mb-8 lg:max-w-sm">
-            <h2 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
+            <h1 className="mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
               {title}
-            </h2>
+            </h1>
             {description && (
               <p className="text-muted-foreground mb-8 lg:text-lg">
                 {description}
@@ -134,9 +134,9 @@ const Psychomot = ({
                   />
                 </a>
                 <div className="px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
-                  <h3 className="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">
+                  <h2 className="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">
                     {feature.heading}
-                  </h3>
+                  </h2>
                   <p
                     className="text-muted-foreground lg:text-lg"
                     dangerouslySetInnerHTML={{ __html: feature.description }}
