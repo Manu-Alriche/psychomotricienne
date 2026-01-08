@@ -101,12 +101,7 @@ function Presentation({
           size="lg"
           className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/30 transition-all"
         >
-          <a
-            href={button.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Prendre rendez-vous"
-          >
+          <a href={button.url} aria-label="Prendre rendez-vous">
             {button.text}
           </a>
         </Button>

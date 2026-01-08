@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardHeader,
@@ -14,19 +15,22 @@ const Aide = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
+      aria-label="Informations utiles et aides financières"
       className="bg-base-100 py-15"
     >
       <section>
-        <div className="container">
-          <h1 className="mb-3 mt-2 text-balance text-3xl font-semibold md:text-4xl">
-            Infos utiles
-          </h1>
-          <p className="text-muted-foreground text-lg mb-16">
-            Aides financières et informations pratiques pour les soins
-            psychomoteurs.
-          </p>
+        <div className="container mx-auto">
+          <header className="mb-14">
+            <h1 className="text-3xl md:text-4xl font-semibold mb-3">
+              Infos utiles
+            </h1>
+            <p className="text-muted-foreground text-lg max-w-2xl">
+              Aides financières et informations pratiques pour les soins
+              psychomoteurs.
+            </p>
+          </header>
 
-          <Card className="max-w-5xl mx-auto shadow-sm border border-border text-left">
+          <Card className="max-w-6xl mx-auto shadow-sm border border-border text-left">
             <CardHeader>
               <CardTitle className="text-3xl font-semibold md:text-4xl text-center">
                 Aides financières
@@ -42,9 +46,11 @@ const Aide = () => {
                 Les soins sont totalement pris en charge lorsqu’ils sont
                 réalisés dans des établissements sanitaires ou médico-sociaux
                 (Centre Médico-Psychologiques, Instituts Médico-Éducatifs,
-                etc.), mais les délais d’attente sont souvent très longs. Les
-                enfants ayant un dossier MDPH avec une prise en charge à 100%
-                peuvent également bénéficier d’un remboursement.
+                etc.), mais les délais d’attente sont souvent très longs.
+              </p>
+              <p>
+                Les enfants ayant un dossier MDPH avec une prise en charge à
+                100% peuvent également bénéficier d’un remboursement.
               </p>
               <p>
                 Vous pouvez faire une demande exceptionnelle de remboursement de

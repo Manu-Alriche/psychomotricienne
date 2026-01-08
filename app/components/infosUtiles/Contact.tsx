@@ -1,6 +1,6 @@
+"use client";
 import { motion } from "framer-motion";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import Assistant from "../Assistant";
 
 interface ContactProps {
   title?: string;
@@ -47,9 +47,9 @@ const Contact = ({
       <section>
         <div className="container">
           <div className="mb-14">
-            <h1 className="mb-3 mt-2 text-balance text-3xl font-semibold md:text-4xl">
+            <h2 className="mb-3 mt-2 text-balance text-3xl font-semibold md:text-4xl">
               {title}
-            </h1>
+            </h2>
             <p className="text-muted-foreground max-w-xl text-lg">
               {description}
             </p>

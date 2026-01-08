@@ -94,7 +94,7 @@ const Hero = ({
           </div>
           <div className="flex">
             <img
-              src="marion-couasse-psychomotricienne.webp"
+              src="image_15.webp"
               alt="Photo de Marion Couasse, psychomotricienne à Ranville (proche Caen)"
               className="max-h-[600px] w-xl rounded-md object-cover lg:max-h-[650px]"
             />

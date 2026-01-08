@@ -1,3 +1,4 @@
+"use client";
 import {
   Accordion,
   AccordionContent,
@@ -71,13 +72,14 @@ const Faq = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
+      aria-label="Foire aux questions sur la psychomotricité"
       className="py-20 bg-background"
     >
       <section>
-        <div className="container max-w-5xl">
-          <h1 className="mb-4 text-3xl font-semibold md:mb-11 md:text-4xl">
+        <div className="container max-w-6xl">
+          <h2 className="mb-4 text-3xl font-semibold md:mb-11 md:text-4xl">
             {heading}
-          </h1>
+          </h2>
           <Accordion type="single" collapsible>
             {items.map((item, index) => (
               <AccordionItem key={index} value={`item-${index}`}>

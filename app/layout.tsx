@@ -31,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${lora.variable} ${poppins.variable}`}>
       <body
+        suppressHydrationWarning={true}
         className={cn(
           lora.className,
           "bg-background text-foreground antialiased"
