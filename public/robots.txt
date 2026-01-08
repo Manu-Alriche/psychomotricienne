@@ -1,0 +1,6 @@
+# Autorise tous les robots à explorer le site
+User-agent: *
+Disallow:
+
+# Lien vers le sitemap
+Sitemap: https://www.psychomotricienne-calvados.fr/

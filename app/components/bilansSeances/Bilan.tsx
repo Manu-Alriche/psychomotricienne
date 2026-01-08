@@ -20,7 +20,7 @@ interface BilanProps {
 }
 
 const Bilan = ({
-  title = "Bilans et Séances",
+  title = "Bilans & Séances",
   description = "Comprendre le déroulement des bilans psychomoteurs et des séances adaptées.",
   buttonUrl = "https://docorga.com/praticien/66deb2fdfe355c835a95fd2f",
   buttonText = "Prendre rendez-vous",
