@@ -50,10 +50,6 @@ const Tarif = () => {
                     <td className="py-3 px-4 font-semibold">150 €</td>
                   </tr>
                   <tr className="border-t border-border hover:bg-muted/50 transition">
-                    <td className="py-3 px-4">Observation psychomotrice</td>
-                    <td className="py-3 px-4 font-semibold">150 €</td>
-                  </tr>
-                  <tr className="border-t border-border hover:bg-muted/50 transition">
                     <td className="py-3 px-4">
                       Consultation de suivi et séances de relaxation
                     </td>

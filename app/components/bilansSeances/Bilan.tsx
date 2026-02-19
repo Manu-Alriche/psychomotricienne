@@ -2,6 +2,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Bilan {
   id: string;
@@ -19,6 +20,13 @@ interface BilanProps {
   features?: Feature[];
 }
 
+type Feature = {
+  id: string;
+  heading: string;
+  description?: React.ReactNode;
+  image: string;
+};
+
 const Bilan = ({
   title = "Bilans & Séances",
   description = "Comprendre le déroulement des bilans psychomoteurs et des séances adaptées.",
@@ -31,9 +39,9 @@ const Bilan = ({
       description: (
         <>
           <p>
-            Le bilan psychomoteur regroupe plusieurs tests standardisés
+            {`Le bilan psychomoteur regroupe plusieurs tests standardisés
             permettant d'observer un âge développemental et/ou des difficultés
-            et des compétences.
+            et des compétences.`}
           </p>
           <br />
           <p>Il évalue différents domaines :</p>
@@ -41,7 +49,7 @@ const Bilan = ({
             <li>La motricité globale et fine</li>
             <li>Les représentations du corps</li>
             <li>Les coordinations</li>
-            <li>L'équilibre</li>
+            <li>{`L'équilibre`}</li>
             <li>Les capacités visuo-spatiales et visuo-constructives</li>
             <li>La compréhension</li>
             <li>Les compétences graphomotrices</li>
@@ -49,26 +57,26 @@ const Bilan = ({
           </ul>
           <br />
           <p>
-            Quand un enfant n'est pas encore accessible à la situation de bilan,
+            {`Quand un enfant n'est pas encore accessible à la situation de bilan,
             il est possible de réaliser une observation de son développement
-            dans différentes situations de jeux.
+            dans différentes situations de jeux.`}
           </p>
           <br />
           <p>
-            Ces deux temps sont toujours précédés d'une anamnèse où le·a
+            {`Ces deux temps sont toujours précédés d'une anamnèse où le·a
             psychomotricien·ne échange avec le patient (et les parents pour les
             enfants) sur les difficultés qui l'amènent à consulter, le
             développement de l'enfant, son quotidien, les antécédents familiaux,
-            etc.
+            etc.`}
           </p>
           <br />
           <p>
-            À l'issue du bilan, les observations seront restituées à la famille
+            {`À l'issue du bilan, les observations seront restituées à la famille
             et au médecin prescripteur. Le·a psychomotricien·ne proposera des
             axes thérapeutiques pour la suite de la prise en charge. Il est
             parfois possible que le bilan ne montre pas de nécessité de suivi
             psychomoteur. Il est alors possible de réorienter si besoin vers
-            le·s professionnel·s compétent·s.
+            le·s professionnel·s compétent·s.`}
           </p>
         </>
       ),
@@ -124,7 +132,7 @@ const Bilan = ({
             </li>
             <li>Troubles anxio-dépressifs</li>
             <li>Stress post-traumatique</li>
-            <li>Difficultés d'image du corps et de rapport à son corps</li>
+            <li>{`Difficultés d'image du corps et de rapport à son corps`}</li>
           </ul>
           <br />
           <p>
@@ -184,13 +192,19 @@ const Bilan = ({
       `}
             >
               {/* Image */}
-              <a className={`${index === 0 ? "md:w-1/2" : "w-full"}`}>
-                <img
+              <a
+                className={`relative block overflow-hidden ${
+                  index === 0
+                    ? "md:w-1/2 h-[500px] md:h-auto"
+                    : "w-full aspect-video"
+                }`}
+              >
+                <Image
                   src={feature.image}
                   alt={feature.heading}
-                  className={`h-full w-full object-cover object-center transition-opacity hover:opacity-80 ${
-                    index === 0 ? "aspect-auto" : "aspect-16/9"
-                  }`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-center transition-opacity hover:opacity-80"
                 />
               </a>
 

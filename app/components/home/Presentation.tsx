@@ -28,13 +28,13 @@ function Presentation({
     },
     {
       image: "/image_7.webp",
-      heading: "Un accompagnement personnalisé",
+      heading: "Bilans et suivis",
       description:
         "Chaque séance est adaptée à vos besoins pour retrouver équilibre, harmonie et confiance en soi.",
     },
     {
       image: "/image_12.webp",
-      heading: "Psychomotricité pour enfants et adultes",
+      heading: "Confonctionnement PCO",
       description:
         "Des suivis complets pour le développement psychomoteur, la relaxation et la gestion des émotions.",
     },
@@ -87,12 +87,12 @@ function Presentation({
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 1 }}
           >
-            <h1 className="text-4xl font-bold lg:text-6xl leading-tight mb-6">
+            <h1 className="text-4xl font-bold lg:text-6xl leading-tight mb-10">
               {activeSlide.heading}
             </h1>
-            <p className="text-gray-200 text-lg lg:text-xl max-w-2xl mx-auto mb-10">
+            {/* <p className="text-gray-200 text-lg lg:text-xl max-w-2xl mx-auto mb-10">
               {activeSlide.description}
-            </p>
+            </p> */}
           </motion.div>
         </AnimatePresence>
 

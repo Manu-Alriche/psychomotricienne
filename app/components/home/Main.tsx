@@ -3,15 +3,16 @@ import { HandHelping, Users, Zap } from "lucide-react";
 import React from "react";
 import { Separator } from "@/app/components/ui/separator";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Feature {
   icon: React.ReactNode;
   title: string;
-  description: string;
+  description: React.ReactNode;
 }
 
 interface MainProps {
-  heading: string | JSX.Element;
+  heading?: string | React.ReactNode;
   imageSrc?: string;
   imageAlt?: string;
   features?: Feature[];
@@ -61,14 +62,20 @@ const Main = ({
             </p>
           </div>
           <div className="relative mx-auto max-w-5xl">
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              className="aspect-video max-h-[500px] w-full rounded-xl object-cover"
-            />
+            <div className="relative mx-auto max-w-5xl aspect-video">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                className="rounded-xl object-cover"
+                priority
+              />
+            </div>
+
             <div className="bg-linear-to-t from-background absolute inset-0 via-transparent to-transparent"></div>
-            <div className="absolute -right-28 -top-28 -z-10 aspect-video h-72 w-96 opacity-40 [background-size:12px_12px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)] sm:bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)]"></div>
-            <div className="absolute -left-28 -top-28 -z-10 aspect-video h-72 w-96 opacity-40 [background-size:12px_12px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)] sm:bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)]"></div>
+            <div className="absolute -right-28 -top-28 -z-10 aspect-video h-72 w-96 opacity-40 bg-size-[12px_12px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)] sm:bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)]"></div>
+            <div className="absolute -left-28 -top-28 -z-10 aspect-video h-72 w-96 opacity-40 bg-size-[12px_12px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)] sm:bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)]"></div>
           </div>
           <div
             className="mx-auto mt-10 flex max-w-5xl flex-col md:flex-row"

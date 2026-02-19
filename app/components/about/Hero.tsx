@@ -3,6 +3,7 @@ import { ArrowUpRight, ArrowDownRight, ChevronDown } from "lucide-react";
 import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface HeroProps {
   badge?: string;
@@ -93,10 +94,13 @@ const Hero = ({
             </motion.div>
           </div>
           <div className="flex">
-            <img
-              src="image_15.webp"
+            <Image
+              src="/image_15.webp"
               alt="Photo de Marion Couasse, psychomotricienne à Ranville (proche Caen)"
-              className="max-h-[600px] w-xl rounded-md object-cover lg:max-h-[650px]"
+              className="w-full max-h-[600px] rounded-md object-cover lg:max-h-[675px]"
+              width={1200}
+              height={800}
+              priority
             />
           </div>
         </div>

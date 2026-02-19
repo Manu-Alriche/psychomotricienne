@@ -1,42 +1,10 @@
 "use client";
-import { useState } from "react";
 import { Input } from "@/app/components/ui/input";
 import { Textarea } from "@/app/components/ui/textarea";
 import { Button } from "@/app/components/ui/button";
 import { motion } from "framer-motion";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState({} as Record<string, string>);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const newErrors: Record<string, string> = {};
-    if (!formData.name) newErrors.name = "Nom requis";
-    if (!formData.email) newErrors.email = "Email requis";
-    if (!formData.subject) newErrors.subject = "Sujet requis";
-    if (!formData.message) newErrors.message = "Message requis";
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      // Ici, envoyer le formulaire à votre backend ou service email
-      alert("Formulaire envoyé avec succès ! !");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }
-  };
-
   return (
     <motion.section
       id="contact"
@@ -49,7 +17,7 @@ const Contact = () => {
     >
       <section className="container mx-auto">
         <div className="grid gap-12 lg:grid-cols-2">
-          {/* Google Map */}
+          {/* MAP */}
           <div className="w-full h-[400px] rounded-md overflow-hidden shadow-lg">
             <iframe
               title="Localisation du cabinet de psychomotricité à Ranville"
@@ -57,126 +25,46 @@ const Contact = () => {
               width="100%"
               height="100%"
               className="border-0"
-              allowFullScreen
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            />
           </div>
 
-          {/* Formulaire de contact */}
+          {/* FORM */}
           <div className="flex flex-col gap-6">
             <h2 className="text-3xl font-bold lg:text-4xl">Me contacter</h2>
             <p className="text-muted-foreground max-w-lg">
-              Remplissez le formulaire ci-dessous et je reviendrais vers dans
-              les plus brefs délais.
+              Remplissez le formulaire ci-dessous et je reviendrai vers vous
+              dans les plus brefs délais.
             </p>
 
             <form
-              onSubmit={handleSubmit}
+              action="/mail.php"
+              method="POST"
               className="flex flex-col gap-4"
-              aria-label="Formulaire de contact"
             >
-              {/* Nom */}
-              <div className="flex flex-col">
-                <label htmlFor="name" className="sr-only">
-                  Nom
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Nom"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  aria-invalid={!!errors.name}
-                  aria-describedby={errors.name ? "error-name" : undefined}
-                />
-                {errors.name && (
-                  <span id="error-name" className="text-red-500 text-sm mt-1">
-                    {errors.name}
-                  </span>
-                )}
-              </div>
+              <Input
+                name="name"
+                type="text"
+                placeholder="Nom"
+                required
+                minLength={2}
+              />
 
-              {/* Email */}
-              <div className="flex flex-col">
-                <label htmlFor="email" className="sr-only">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  aria-invalid={!!errors.email}
-                  aria-describedby={errors.email ? "error-email" : undefined}
-                />
-                {errors.email && (
-                  <span id="error-email" className="text-red-500 text-sm mt-1">
-                    {errors.email}
-                  </span>
-                )}
-              </div>
+              <Input name="email" type="email" placeholder="Email" required />
 
-              {/* Sujet */}
-              <div className="flex flex-col">
-                <label htmlFor="subject" className="sr-only">
-                  Sujet
-                </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  placeholder="Sujet"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  aria-invalid={!!errors.subject}
-                  aria-describedby={
-                    errors.subject ? "error-subject" : undefined
-                  }
-                />
-                {errors.subject && (
-                  <span
-                    id="error-subject"
-                    className="text-red-500 text-sm mt-1"
-                  >
-                    {errors.subject}
-                  </span>
-                )}
-              </div>
+              <Input name="subject" type="text" placeholder="Sujet" required />
 
-              {/* Message */}
-              <div className="flex flex-col">
-                <label htmlFor="message" className="sr-only">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Votre message..."
-                  rows={6}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  aria-invalid={!!errors.message}
-                  aria-describedby={
-                    errors.message ? "error-message" : undefined
-                  }
-                />
-                {errors.message && (
-                  <span
-                    id="error-message"
-                    className="text-red-500 text-sm mt-1"
-                  >
-                    {errors.message}
-                  </span>
-                )}
-              </div>
+              <Textarea
+                name="message"
+                placeholder="Votre message..."
+                rows={6}
+                required
+                minLength={10}
+              />
+
+              {/* anti spam simple */}
+              <input type="text" name="company" className="hidden" />
+
               <Button
                 type="submit"
                 className="w-fit bg-primary hover:bg-primary/90 text-white shadow-md transition-all"

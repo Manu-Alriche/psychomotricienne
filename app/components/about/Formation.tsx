@@ -15,14 +15,19 @@ const formationData: FormationEntry[] = [
     content: "Formation Troubles sensoriels dans les TND",
   },
   {
-    date: "2024",
-    title: "Massage Bébé Shantala",
-    content: "Formation Massage Bébé Shantala",
+    date: "2025",
+    title: "DUNN 2",
+    content: "Formation aux test du profils sensoriel",
   },
   {
     date: "2023 - 2024",
-    title: "RESPIR' Formation",
+    title: "AFPUP",
     content: "Formation en graphomotricité (acte graphique)",
+  },
+  {
+    date: "2023",
+    title: "Massage Bébé Shantala",
+    content: "Formation Massage Bébé Shantala",
   },
   {
     date: "2022 - 2023",
@@ -30,17 +35,17 @@ const formationData: FormationEntry[] = [
     content: "Formation en Éducation Thérapeutique du Patient",
   },
   {
-    date: "2020 - 2021",
-    title: "RESPIR' Formation",
-    content: "Formation au Amma Thérapeutique",
-  },
-  {
     date: "2021 - 2022",
     title: "Hôpital Avicenne",
     content: "Sensibilisation / formation au psycho-traumatisme",
   },
   {
-    date: "1956",
+    date: "2020 - 2021",
+    title: "RESPIR' Formation",
+    content: "Formation au Amma Thérapeutique",
+  },
+  {
+    date: "2017 - 2018",
     title: "A. Bullinger",
     content: "Sensibilisation à l’approche sensori-motrice",
   },

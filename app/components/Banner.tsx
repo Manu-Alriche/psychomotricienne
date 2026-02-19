@@ -4,10 +4,10 @@ import { useState } from "react";
 import { Button } from "@/app/components/ui/button";
 
 interface BannerProps {
-  title: string;
-  description: string;
-  linkText: string;
-  linkUrl: string;
+  title?: string;
+  description?: string;
+  linkText?: string;
+  linkUrl?: string;
   defaultVisible?: boolean;
 }
 

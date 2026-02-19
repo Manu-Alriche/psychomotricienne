@@ -1,5 +1,6 @@
 "use client";
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+// import { Book, Sunset, Trees, Zap } from "lucide-react";
+import { Menu } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -24,6 +25,7 @@ import {
 } from "@/app/components/ui/sheet";
 import { useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface MenuItem {
   title: string;
@@ -124,7 +126,7 @@ const Navbar = ({
     buttonB: { title: "Contact", url: "/#contact" },
   },
 }: NavbarProps) => {
-  const memoMenu = useMemo(() => menu, [menu]);
+  // const memoMenu = useMemo(() => menu, [menu]);
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 bg-background/90 py-5 backdrop-blur-sm shadow-sm border-b"
@@ -141,10 +143,12 @@ const Navbar = ({
               className="flex items-center gap-2"
               aria-label="Accueil"
             >
-              <img
+              <Image
                 src={logo.src}
-                className="max-h-8 dark:invert"
                 alt={logo.alt}
+                width={120}
+                height={32}
+                className="h-8 w-auto dark:invert"
               />
               <span className="text-lg font-semibold tracking-tighter">
                 {logo.title}
@@ -177,10 +181,12 @@ const Navbar = ({
               className="flex items-center gap-2"
               aria-label="Accueil"
             >
-              <img
+              <Image
                 src={logo.src}
-                className="max-h-8 dark:invert"
                 alt={logo.alt}
+                width={120}
+                height={32}
+                className="h-8 w-auto dark:invert"
               />
             </Link>
             <Sheet>
@@ -200,10 +206,12 @@ const Navbar = ({
                 <SheetHeader>
                   <SheetTitle>
                     <Link href={logo.url} className="flex items-center gap-2">
-                      <img
+                      <Image
                         src={logo.src}
-                        className="max-h-8 dark:invert"
                         alt={logo.alt}
+                        width={120}
+                        height={32}
+                        className="h-8 w-auto dark:invert"
                       />
                     </Link>
                   </SheetTitle>

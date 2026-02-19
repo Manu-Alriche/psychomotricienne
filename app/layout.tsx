@@ -34,7 +34,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={cn(
           lora.className,
-          "bg-background text-foreground antialiased"
+          "bg-background text-foreground antialiased",
         )}
       >
         <AnimatedCursor />

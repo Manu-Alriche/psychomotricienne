@@ -6,7 +6,7 @@ export default function BilansSeances() {
   return (
     <Wrapper>
       <div className="mt-20">
-        <Bilan />
+        <Bilan title="Bilans et séances" />
       </div>
     </Wrapper>
   );

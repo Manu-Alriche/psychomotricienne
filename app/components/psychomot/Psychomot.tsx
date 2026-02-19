@@ -2,16 +2,17 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Feature {
   id: string;
   heading: string;
-  content: JSX.Element;
+  content: React.ReactNode;
   image: string;
 }
 
 interface PsychomotProps {
-  title: string;
+  title?: string;
   description?: string;
   buttonUrl?: string;
   buttonText?: string;
@@ -75,11 +76,11 @@ const Psychomot = ({
             <li>Agitation ou inhibition psychomotrice</li>
             <li>Stress post-traumatique</li>
             <li>
-              Troubles des apprentissages (maladresse, difficultés d'écriture,
-              de concentration…)
+              {`Troubles des apprentissages (maladresse, difficultés d'écriture,
+              de concentration…)`}
             </li>
             <li>Accidents avec pertes de capacités psychomotrices</li>
-            <li>Trouble de l'image du corps</li>
+            <li>{`Trouble de l'image du corps`}</li>
             <li>Troubles anxieux et psychoaffectifs</li>
             <li>Troubles psychiques</li>
           </ul>
@@ -154,10 +155,12 @@ const Psychomot = ({
               key={feature.id}
               className="border-border flex flex-col overflow-clip rounded-xl border"
             >
-              <img
+              <Image
                 src={feature.image}
                 alt={feature.heading}
-                className="aspect-16/9 w-full object-cover object-center transition-opacity hover:opacity-80"
+                width={640}
+                height={360}
+                className="aspect-video w-full object-cover object-center transition-opacity hover:opacity-80"
               />
 
               <div className="px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">

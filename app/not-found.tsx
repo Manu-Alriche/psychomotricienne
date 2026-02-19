@@ -19,9 +19,9 @@ export default function NotFound() {
         Oups… Page introuvable !
       </h2>
       <p className="text-muted-foreground mb-8 text-center max-w-md">
-        La page que vous recherchez n'existe pas ou a été déplacée. Reprenez
+        {`La page que vous recherchez n'existe pas ou a été déplacée. Reprenez
         votre navigation depuis la page d’accueil ou prenez directement
-        rendez-vous.
+        rendez-vous.`}
       </p>
       <motion.div
         initial={{ opacity: 0, y: 8 }}
@@ -44,7 +44,7 @@ export default function NotFound() {
             window.open(
               "https://docorga.com/praticien/66deb2fdfe355c835a95fd2f",
               "_blank",
-              "noopener,noreferrer"
+              "noopener,noreferrer",
             )
           }
           aria-label="Prendre rendez-vous (s'ouvre dans un nouvel onglet)"
